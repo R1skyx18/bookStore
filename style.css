@@ -278,7 +278,7 @@ section .home{
 }
 .main .container {
     display: flex;
-    gap: 90px;
+    gap: 45px;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
