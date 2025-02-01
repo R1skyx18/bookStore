@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,6 +16,34 @@
     <link rel="stylesheet" href="style.css">
     <title>Book Store</title>
 </head>
+<?php
+    session_start();
+
+    $con=mysqli_connect('localhost','root','') or die("No Connection!!");
+    mysqli_select_db($con,"test");
+        
+    if(isset($_POST["login"]))
+    {
+        $uname=$_POST["un"];
+        $pass=$_POST["pas"];
+        $_SESSION["uname"]=$uname;
+        $q1="select * from users where user_name='$uname' and password='$pass';";
+        $q12=mysqli_query($con,$q1);
+        if($a=mysqli_fetch_array($q12))
+            header('location: admin.php');
+        else
+            echo "Invalid username or password";
+    }
+
+    if(isset($_POST["register"]))
+    {
+        $uname=$_POST["un"];
+        $pass=$_POST["pas"];
+        $q1="insert into users values('$uname','$pass');";
+        mysqli_query($con,$q1);
+    }
+
+    ?>
 
 <body>
     <section class="main">
@@ -43,11 +72,12 @@
                     <div class="search-container">
                         <i class="fa-solid fa-magnifying-glass search-icon"></i>
                         <i class="fa-solid fa-heart"></i>
+                        <i class="fa-solid fa-right-to-bracket login-btn"></i>
                     </div>
                 </div>
             </div>
         </nav>
-       <!--==========-->
+        <!--==========-->
 
 
         <!--home-->
@@ -67,17 +97,17 @@
                 </div>
             </div>
         </section>
-      <!--==========-->
+        <!--==========-->
 
 
-       <!--script-->
+        <!--script-->
         <script>
             /*===variable declarations===*/
             body = document.querySelector("body"),
                 nav = document.querySelector("nav"),
                 sidebarOpen = document.querySelector(".sidebarOpen"),
                 sidebarClose = document.querySelector(".sidebarClose");
-                /*===listener open===*/
+            /*===listener open===*/
             sidebarOpen.addEventListener("click", () => {
                 nav.classList.add("active");
             });
@@ -101,8 +131,29 @@
                 <div class="message" id="message"></div>
             </div>
         </div>
-        <!--==========-->
 
+        <!--login-->
+        <div id="login-popup" class="login-popup">
+            <form method="post" class="login-form">
+                <h1>Login</h1>
+                <i class="fa-solid fa-x close" id="close"></i>
+                <input type="text" name="un" placeholder="Username">
+                <input type="password" name="pas" placeholder="Password">
+                <input class="button" type="submit" value="Login" name="login">
+                <div class="register-btn" id="register-btn">New user ?</div>
+            </form>
+        </div>
+
+        <div id="register-popup" class="register-popup">
+            <form method="post" class="register-form">
+                <h1>register</h1>
+                <i class="fa-solid fa-x close" id="close"></i>
+                <input type="text" name="un" placeholder="Username">
+                <input type="password" name="pas" placeholder="Password">
+                <input class="button" type="submit" value="add user" name="register">
+            </form>
+        </div>
+        <!--==========-->
 
         <!--cards-->
         <div class="container">
@@ -706,4 +757,5 @@
     </section>
     <script src="script.js"></script>
 </body>
+
 </html>

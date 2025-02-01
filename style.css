@@ -144,11 +144,158 @@ section nav .social_icon i {
     margin: 0 5px;
     font-size: 18px;
 }
+section nav .social_icon .login-btn {
+    color: #089da1;
+}
 
 section nav .social_icon i:hover {
     color: #089da1;
     cursor: pointer;
 }
+
+.main .login-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.login-popup .login-form {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+    z-index: 101;
+    display: flex;
+    flex-direction: column;
+}
+.login-popup .login-form h1 {
+    color: #089da1;
+    margin: 12px;
+}
+
+.login-popup .login-form input {
+    width: 300px;
+    padding: 10px;
+    outline: none;
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-popup .login-form .close{
+    position: absolute;
+    cursor: pointer;
+    top: 15px;
+    right: 17px;
+    color: #000;
+}
+
+.login-popup .login-form .close:hover {
+    color: #089da1;
+}
+
+.login-popup .login-form .button {
+    padding: 12px 20px;
+    border: none;
+    background-color: #089da1;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-popup .login-form .button:hover {
+    background-color: #089da1;
+}
+
+.login-popup .login-form .message {
+    margin-top: 10px;
+    color: #333;
+    font-size: 14px;
+}
+
+
+
+.main .register-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.register-popup .register-form {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+    z-index: 101;
+    display: flex;
+    flex-direction: column;
+}
+.register-popup .register-form h1 {
+    color: #089da1;
+    margin: 12px;
+}
+
+.register-popup .register-form input {
+    width: 300px;
+    padding: 10px;
+    outline: none;
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.register-popup .register-form .close{
+    position: absolute;
+    cursor: pointer;
+    top: 15px;
+    right: 17px;
+    color: #000;
+}
+
+.register-popup .register-form .close:hover {
+    color: #089da1;
+}
+
+.register-popup .register-form .button {
+    padding: 12px 20px;
+    border: none;
+    background-color: #089da1;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.register-popup .register-form .button:hover {
+    background-color: #089da1;
+}
+
+.register-popup .register-form .message {
+    margin-top: 10px;
+    color: #333;
+    font-size: 14px;
+}
+
+
 .main{
     height: auto;
 }
@@ -1068,3 +1215,69 @@ section .home{
 
 }
 /*============*/
+
+.main .admin-popup {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.admin-popup .admin-form {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.288);
+    border-radius: 5px;
+    text-align: center;
+    z-index: 101;
+    display: flex;
+    flex-direction: column;
+}
+.admin-popup .admin-form h1 {
+    color: #089da1;
+    margin: 12px;
+}
+.admin-popup .admin-form select,
+.admin-popup .admin-form input {
+    width: 300px;
+    padding: 10px;
+    outline: none;
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.admin-popup .admin-form .close{
+    position: absolute;
+    cursor: pointer;
+    top: 15px;
+    right: 17px;
+    color: #000;
+}
+
+.admin-popup .admin-form .close:hover {
+    color: #089da1;
+}
+
+.admin-popup .admin-form .button {
+    padding: 12px 20px;
+    border: none;
+    background-color: #089da1;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.admin-popup .admin-form .button:hover {
+    background-color: #089da1;
+}
+
+.admin-popup .admin-form .message {
+    margin-top: 10px;
+    color: #333;
+    font-size: 14px;
+}

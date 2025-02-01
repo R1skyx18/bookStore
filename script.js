@@ -1,5 +1,9 @@
 const searchIcon = document.querySelector('.search-icon');
+const loginBtn = document.querySelector('.login-btn');
+const registerBtn = document.querySelector('.register-btn');
 const popupOverlay = document.getElementById('popup');
+const loginOverlay = document.getElementById('login-popup');
+const registerOverlay = document.getElementById('register-popup');
 const searchButton = document.getElementById('search-button');
 const closeButton = document.getElementById('close');
 const searchBar = document.getElementById('search-bar');
@@ -7,6 +11,15 @@ const message = document.getElementById('message');
 
 searchIcon.addEventListener('click', () => {
     popupOverlay.style.display = 'flex';
+});
+
+loginBtn.addEventListener('click', () => {
+    loginOverlay.style.display = 'flex';
+});
+
+registerBtn.addEventListener('click', () => {
+    registerOverlay.style.display = 'flex';
+    loginOverlay.style.display = 'none';
 });
 
 searchButton.addEventListener('click', () => {
@@ -38,5 +51,21 @@ popupOverlay.addEventListener('click', (e) => {
 closeButton.addEventListener('click', (e) => {
     if (e.target === closeButton) {
         popupOverlay.style.display = 'none';
+        loginOverlay.style.display = 'none';
+        registerOverlay.style.display = 'none';
     }
 });
+
+
+loginOverlay.addEventListener('click', (e) => {
+    if (e.target === loginOverlay) {
+        loginOverlay.style.display = 'none';
+    }
+});
+
+registerOverlay.addEventListener('click', (e) => {
+    if (e.target === registerOverlay) {
+        registerOverlay.style.display = 'none';
+    }
+});
+
