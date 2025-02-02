@@ -58,7 +58,7 @@ else
                         <li><a href="index.php">Home</a></li>
                         <li><a href="view_emp.php">View Employees</a></li>
                         <li><a href="view_pros.php">View Projects</a></li>
-                        <li><a href="view_emp.php">View Employees Projects</a></li>
+                        <li><a href="view_emp_project.php">View Employees Projects</a></li>
                         <li><a href="add_emp.php">Add Employee</a></li>
                         <li><a href="add_pros.php">Add Projects</a></li>
                         <li><a href="logout.php">Logout</a></li>

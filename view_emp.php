@@ -44,7 +44,7 @@ else
                         <li><a href="index.php">Home</a></li>
                         <li><a href="view_emp.php">View Employees</a></li>
                         <li><a href="view_pros.php">View Projects</a></li>
-                        <li><a href="view_emp.php">View Employees Projects</a></li>
+                        <li><a href="view_emp_project.php">View Employees Projects</a></li>
                         <li><a href="add_emp.php">Add Employee</a></li>
                         <li><a href="add_pros.php">Add Projects</a></li>
                         <li><a href="logout.php">Logout</a></li>
@@ -91,7 +91,9 @@ else
                 <div class="message" id="message"></div>
             </div>
         </div>
+
       <div class="admin-popup">
+      
     <form class="admin-form" method="get">
         <h1>employee search</h1>
         <input class="button" type="submit"  value="view employees" name="s1">
@@ -105,20 +107,30 @@ else
          mysqli_select_db($con,"test");
         if(isset($_GET["s1"]))
         {
-            $q1="SELECT emp.eno, pros.pno FROM emp, pros;";
-            $q4="select * from pros where pno;";
-            
+            $q1="select * from emp;";
             $q12=mysqli_query($con,$q1);
 
             echo "<table border=2>";
-            echo "<tr><td>Emp_ID</td><td>pro_num</td></tr>";
+            echo "<tr><td>Emp_ID</td><td>Emp_Name</td><td>Salary</td><td>Dept_No</td></tr>";
             while($a1=mysqli_fetch_array($q12))
-                echo "<tr><td>$a1[eno]</td><td>$a1[pno]</td></tr>";
+                echo "<tr><td>$a1[0]</td><td>$a1[1]</td><td>$a1[2]</td><td>$a1[3]</td></tr>";
             echo "</table>";
-        }  
+        }
+        if(isset($_GET["s2"]))
+        {
+            $eid=$_GET["id"];
+            $q3="select * from emp where eno=$eid;";
+            $q31=mysqli_query($con,$q3);
+            echo "<table border=2>";
+            echo "<tr><td>Emp_ID</td><td>Emp_Name</td><td>Salary</td><td>Dept_No</td></tr>";
+            while($a2=mysqli_fetch_array($q31))
+                echo "<tr><td>$a2[0]</td><td>$a2[1]</td><td>$a2[2]</td><td>$a2[3]</td></tr>";
+            echo "</table>";
+        }
     ?>
     </form>
+    
       </div>  
-    </section>  
+    </section>
 </body>
 </html>
